@@ -91,3 +91,68 @@ body {
 .contact-container a:hover {
   text-decoration: underline;
 }
+body {
+  background-color: #001f3f;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.profile-section h1,
+.profile-section h2 {
+  color: #00d1b2;
+}
+
+.profile-section p,
+.profile-section span {
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.partner-logos img {
+  height: 50px;
+  object-fit: contain;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.feedback-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.feedback-card {
+  background-color: #002d5c;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.feedback-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
