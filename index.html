@@ -14,7 +14,7 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       padding: 60px 20px;
       text-align: center;
@@ -23,7 +23,7 @@
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2.8em;
+      font-size: 3em;
       color: #00ffd9;
       margin-bottom: 20px;
     }
@@ -70,7 +70,7 @@
 
     .partner-logos img {
       height: 50px;
-      filter: grayscale(1) brightness(0.8);
+      filter: grayscale(1) brightness(0.9);
       transition: 0.3s;
     }
 
@@ -90,13 +90,22 @@
       background: #1e1e1e;
       padding: 20px;
       border-radius: 12px;
-      max-width: 280px;
+      max-width: 300px;
       box-shadow: 0 0 10px rgba(0, 255, 217, 0.1);
+      text-align: left;
+    }
+
+    .card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-bottom: 10px;
     }
 
     .card p {
       font-style: italic;
       color: #ddd;
+      font-size: 0.95em;
     }
 
     .card span {
@@ -104,6 +113,7 @@
       margin-top: 10px;
       font-weight: bold;
       color: #00ffd9;
+      font-size: 0.9em;
     }
 
     @keyframes fadeIn {
@@ -114,28 +124,41 @@
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to MoneyPlus Innovation</h1>
-    <p>Your digital gateway to daily earnings! Earn by completing simple tasks — from trivia and spins to surveys and video views. Fast, secure, and rewarding.</p>
+    <h1>MoneyPlus Innovation</h1>
+    <p>Empowering individuals through simple, rewarding digital tasks. Trusted by thousands across Kenya to turn spare time into income — anytime, anywhere.</p>
     <button class="btn" onclick="window.location.href='signup.html'">Get Started</button>
 
     <div class="partners">
-      <h2>Our Trusted Partners</h2>
+      <h2>Trusted By</h2>
       <div class="partner-logos">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Google_2015_logo.svg" alt="Google" />
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" />
         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/SurveyMonkey_Logo.svg/2560px-SurveyMonkey_Logo.svg.png" alt="SurveyMonkey" />
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_social_white_squircle_%282017%29.svg" alt="YouTube" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/M-PESA_LOGO-01.svg" alt="M-Pesa" />
       </div>
     </div>
 
     <div class="feedback">
-      <h2>What Our Users Say</h2>
+      <h2>What Our Kenyan Users Say</h2>
       <div class="feedback-cards">
         <div class="card">
-          <p>“I made my first $5 in a day. Super easy and fun!”</p>
-          <span>– Anita, Kenya</span>
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User Photo">
+          <p>“I made my first Ksh 600 in just two days. Love how simple and fast everything is.”</p>
+          <span>– Mary N., Nairobi</span>
         </div>
         <div class="card">
-          <p>“The wheel spin and trivia make earning fun.”</p>
-          <span>– John, UK</span>
-          <div class="feedback">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Photo">
+          <p>“The trivia and surveys are fun. I withdraw to M-Pesa in minutes.”</p>
+          <span>– Brian K., Kisumu</span>
+        </div>
+        <div class="card">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User Photo">
+          <p>“Very reliable and easy to use. A great way to earn after work.”</p>
+          <span>– Janet M., Mombasa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
