@@ -1,0 +1,71 @@
+.company-profile {
+  background: #001f3f;
+  color: white;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.company-profile h1,
+.company-profile h2 {
+  color: #00d4ff;
+}
+
+.company-profile p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.partner-logos {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.partner-logos img {
+  max-height: 50px;
+  object-fit: contain;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.feedback {
+  margin-top: 60px;
+}
+
+.feedback-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-style: italic;
+  color: #e0f7ff;
+}
+
+.card span {
+  font-weight: bold;
+  color: #00ffcc;
+} 
