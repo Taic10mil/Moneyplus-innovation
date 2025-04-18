@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MoneyPlus Innovation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(#051f34, #0f2a43);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Starry background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png');
+      opacity: 0.1;
+      z-index: -1;
+      animation: scrollStars 100s linear infinite;
+    }
+
+    @keyframes scrollStars {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 10000px; }
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin: 0;
+      color: #00bcd4;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #bde7f1;
+    }
+
+    section {
+      max-width: 960px;
+      margin: auto;
+      padding: 30px 20px;
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #00bcd4;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .trusted-partners {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .partner {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 12px;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 600;
+      color: #bde7f1;
+      transition: background 0.3s;
+    }
+    .partner:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta button {
+      background: #00bcd4;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .cta button:hover {
+      background: #008fa3;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MoneyPlus-Innovation</h1>
+    <p>Turning Time into Earnings</p>
+  </header>
+
+  <section>
+    <p>
+      At MoneyPlus-Innovation, we are redefining how Kenyans earn online. Our goal is to help you turn your free time into real income with fun and easy tasks — from trivia to surveys, video watching, and more.
+    </p>
+
+    <h2>Why You Can Trust Us</h2>
+    <ul>
+      <li>100% Kenyan-Owned & Operated</li>
+      <li>Secure & Fast Payouts via M-PESA, Airtel Money & PayPal</li>
+      <li>Transparent Subscription Plans with No Hidden Fees</li>
+      <li>Active Customer Support</li>
+      <li>Verified Earning Opportunities</li>
+    </ul>
+
+    <h2>Our Mission & Vision</h2>
+    <p>To empower digital hustlers with accessible and rewarding online opportunities — anywhere, anytime.</p>
+
+    <h2>History & Journey</h2>
+    <p>Founded in the heart of Nairobi CBD, MoneyPlus-Innovation began as a small tech idea and grew into a trusted platform connecting thousands of Kenyans to real digital income solutions.</p>
+
+    <h2>Our Team</h2>
+    <p>Led by young and passionate entrepreneurs from Kenya, our team brings together expertise in tech, fintech, and user experience — all built around a user-first approach.</p>
+
+    <h2>Trusted Partners</h2>
+    <div class="trusted-partners">
+      <div class="partner">M-PESA (Safaricom)</div>
+      <div class="partner">Airtel Money</div>
+      <div class="partner">PayPal</div>
+      <div class="partner">YouTube</div>
+      <div class="partner">SurveyMonkey</div>
+      <div class="partner">Google Opinion Rewards</div>
+      <div class="partner">TriviaWall</div>
+    </div>
+
+    <div class="cta">
+      <button onclick="window.location.href='signup.html'">Get Started</button>
+    </div>
+  </section>
+
+  <footer>
+    For more info, contact us at <strong>moneyplusinnovation@gmail.com</strong>
+  </footer>
+
+</body>
+</html>
