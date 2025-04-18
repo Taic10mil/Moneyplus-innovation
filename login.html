@@ -1,144 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login | MoneyPlus Innovation</title>
-  <style>
-    body {
-      background-color: #0d1117;
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .login-box {
-      background-color: #161b22;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      width: 300px;
-    }
-    .login-box h2 {
-      margin-bottom: 20px;
-    }
-    input[type="email"], input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 6px;
-      background-color: #21262d;
-      color: white;
-    }
-    .remember {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      font-size: 0.9em;
-    }
-    .remember input {
-      margin-right: 6px;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      background-color: #238636;
-      color: white;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #2ea043;
-    }
-    .google-btn {
-      margin-top: 10px;
-      background-color: #4285F4;
-    }
-    p {
-      margin-top: 15px;
-      font-size: 0.9em;
-    }
-    a {
-      color: #58a6ff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
+<form>
+  <input type="email" placeholder="Email Address" required>
+  <input type="password" placeholder="Password" required>
 
-<div class="login-box">
-  <h2>Log In</h2>
-  <form id="login-form">
-    <input type="email" id="login-email" placeholder="Email" required />
-    <input type="password" id="login-password" placeholder="Password" required />
-    <div class="remember">
-      <input type="checkbox" id="remember-me" />
-      <label for="remember-me">Remember Me</label>
-    </div>
-    <button type="submit">Log In</button>
-    <button type="button" class="google-btn" id="google-login">Continue with Google</button>
-  </form>
-  <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
-</div>
+  <!-- Country Code and Phone Input -->
+  <div style="display: flex; gap: 10px; margin: 10px 0;">
+    <select id="countryCode" required style="flex: 1; padding: 12px; border-radius: 8px; background: #2b2b2b; color: white; border: none;">
+      <option value="+1">+1 (US)</option>
+      <option value="+44">+44 (UK)</option>
+      <option value="+234">+234 (Nigeria)</option>
+      <option value="+254">+254 (Kenya)</option>
+      <option value="+91">+91 (India)</option>
+      <option value="+27">+27 (South Africa)</option>
+      <option value="+61">+61 (Australia)</option>
+      <!-- Add more as needed -->
+    </select>
+    <input type="tel" placeholder="Phone Number" required style="flex: 2; padding: 12px; border-radius: 8px; background: #2b2b2b; color: white; border: none;" />
+  </div>
 
-<!-- Firebase Script -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
-  import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+  <div class="checkbox-group">
+    <input type="checkbox" id="remember">
+    <label for="remember">Remember me</label>
+  </div>
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCzQPvrcgffzMJbtj2PMs_yP-wp7pPo3jc",
-    authDomain: "moneyplus-innovation.firebaseapp.com",
-    projectId: "moneyplus-innovation",
-    storageBucket: "moneyplus-innovation.firebasestorage.app",
-    messagingSenderId: "99760142751",
-    appId: "1:99760142751:web:8e8b1ee82d3a38df2665aa",
-    measurementId: "G-YEPV96ZPW7"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const auth = getAuth(app);
-
-  const loginForm = document.getElementById('login-form');
-  loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        alert("Login successful!");
-        // Redirect or further logic here
-      })
-      .catch((error) => {
-        alert("Login failed: " + error.message);
-      });
-  });
-
-  const googleLogin = document.getElementById('google-login');
-  googleLogin.addEventListener('click', () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        alert("Google login successful!");
-        // Redirect or further logic here
-      })
-      .catch((error) => {
-        alert("Google login failed: " + error.message);
-      });
-  });
-</script>
-
-</body>
-</html>
+  <button type="submit" class="submit-btn">Login</button>
+  <button type="button" class="google-btn">Continue with Google</button>
+</form>
