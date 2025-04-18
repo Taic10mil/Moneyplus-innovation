@@ -2,112 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MoneyPlus Innovation - Company Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoneyPlus Innovation</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #002b45;
-      color: #fff;
+      background-color: #001f3f;
+      color: #ffffff;
       line-height: 1.6;
     }
-    .container {
+
+    header {
+      background: linear-gradient(135deg, #002d5a, #001f3f);
+      padding: 3rem 2rem;
+      text-align: center;
+      animation: fadeInDown 1.5s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      color: #00bfff;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    section {
+      padding: 2rem;
       max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      margin: auto;
+      animation: fadeInUp 1.2s ease;
     }
-    h1, h2 {
-      text-align: center;
-      color: #ffffff;
+
+    h2 {
+      border-left: 5px solid #00bfff;
+      padding-left: 10px;
+      margin-bottom: 1rem;
+      color: #00bfff;
     }
-    .section {
-      margin-bottom: 50px;
+
+    ul li {
+      margin-bottom: 0.5rem;
     }
-    p {
-      text-align: center;
-      font-size: 1.1em;
-    }
-    .trusted-logos {
+
+    .partner-logos {
       display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
       justify-content: center;
       align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 20px;
+      animation: fadeIn 2s ease-in;
     }
-    .trusted-logos img {
-      height: 40px;
-    }
-    .button {
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
-    }
-    .button a {
-      background-color: #0bc0b7;
-      color: white;
-      padding: 12px 30px;
+
+    .partner-logos img {
+      height: 50px;
+      background: #fff;
+      padding: 0.5rem;
       border-radius: 8px;
+    }
+
+    .get-started-btn {
+      display: block;
+      width: max-content;
+      margin: 2rem auto;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      color: white;
+      background-color: #00bfff;
+      border: none;
+      border-radius: 5px;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .button a:hover {
-      background-color: #099e9a;
-    }
-    .footer {
       text-align: center;
-      margin-top: 40px;
-      font-size: 0.9em;
+      transition: background 0.3s ease;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .get-started-btn:hover {
+      background-color: #0099cc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #002233;
+      font-size: 0.9rem;
       color: #ccc;
+      animation: fadeIn 2s ease-in;
+    }
+
+    footer a {
+      color: #00bfff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="section">
-      <h1>MoneyPlus Innovation</h1>
-      <p>Empowering individuals through simple, rewarding digital tasks. Trusted by thousands globally.</p>
-    </div>
 
-    <div class="button">
-      <a href="#">Get Started</a>
-    </div>
+  <header>
+    <h1>MoneyPlus-Innovation</h1>
+    <p>Turning Time into Earnings</p>
+  </header>
 
-    <div class="section">
-      <h2>Trusted By</h2>
-      <div class="trusted-logos">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" />
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/43/SurveyMonkey_Logo.png/320px-SurveyMonkey_Logo.png" alt="SurveyMonkey" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube%28amin%29.png" alt="YouTube" />
-      </div>
-    </div>
+  <section>
+    <p>At MoneyPlus-Innovation, we are redefining how Kenyans earn online. Our goal is to help you turn your free time into real income with fun and easy tasks — from trivia to surveys, video watching, and more.</p>
+  </section>
 
-    <div class="section">
-      <h2>Our Mission</h2>
-      <p>To transform the way Kenyans earn online by providing accessible, fun, and reliable digital tasks through a trusted platform.</p>
-    </div>
+  <section>
+    <h2>Why You Can Trust Us</h2>
+    <ul>
+      <li>100% Kenyan-Owned & Operated – built for Kenyans by Kenyans.</li>
+      <li>Secure & Fast Payouts via M-PESA, Airtel Money, and PayPal.</li>
+      <li>Transparent Subscription Plans – no hidden fees.</li>
+      <li>Active Customer Support – we're here to help anytime.</li>
+      <li>Real Earning Opportunities from verified survey and trivia platforms.</li>
+    </ul>
+  </section>
 
-    <div class="section">
-      <h2>Our Team</h2>
-      <p>Led by a group of innovative Kenyan entrepreneurs, our team is passionate about financial inclusion and digital empowerment.</p>
+  <section>
+    <h2>Trusted By</h2>
+    <div class="partner-logos">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/M-Pesa_Logo.png" alt="M-Pesa" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Safaricom_logo.svg" alt="Safaricom" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Airtel_logo.svg" alt="Airtel" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/PayPal_Logo.png" alt="PayPal" />
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/YouTube_Logo_2017.svg" alt="YouTube" />
+      <img src="https://cdn.worldvectorlogo.com/logos/surveymonkey-1.svg" alt="SurveyMonkey" />
     </div>
+  </section>
 
-    <div class="section">
-      <h2>Our History</h2>
-      <p>Founded in Nairobi CBD, MoneyPlus Innovation started with a simple goal: to help Kenyans make money using their smartphones through verified tasks and partners like Google and YouTube.</p>
-    </div>
+  <section>
+    <h2>Our Mission</h2>
+    <p>To empower Kenyans with simple, digital earning tools that are fun, fast, and fair — helping bridge the gap between time and value in the digital age.</p>
+  </section>
 
-    <div class="section">
-      <h2>Achievements</h2>
-      <p>Over 10,000+ users across Kenya have joined us in turning time into earnings. Fast withdrawals, trusted partners, and an ever-growing user base make us one of Kenya’s most reliable online earning platforms.</p>
-    </div>
+  <section>
+    <h2>Our Team</h2>
+    <p>Led by young innovative minds in Nairobi, our team combines tech expertise with deep understanding of the local market to serve you better.</p>
+  </section>
 
-    <div class="footer">
-      For more info, contact us at: <strong>moneyplusinnovation@gmail.com</strong>
-    </div>
-  </div>
+  <section>
+    <h2>Company History</h2>
+    <p>Founded in 2024, MoneyPlus-Innovation was born from the idea that everyone deserves access to income opportunities regardless of location or background. From a small startup, we have grown to become a trusted platform for digital earners across Kenya.</p>
+  </section>
+
+  <a class="get-started-btn" href="signup.html">Get Started</a>
+
+  <footer>
+    For more info, contact us at <a href="mailto:moneyplusinnovation@gmail.com">moneyplusinnovation@gmail.com</a>
+  </footer>
+
 </body>
 </html>
