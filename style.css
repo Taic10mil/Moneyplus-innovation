@@ -1,17 +1,25 @@
-.company-profile {
-  background: #001f3f;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #031c30; /* Ocean dark blue */
   color: white;
-  padding: 60px 20px;
-  font-family: 'Segoe UI', sans-serif;
 }
 
-.company-profile h1,
-.company-profile h2 {
-  color: #00d4ff;
+.company-profile {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.company-profile h1, .company-profile h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
 }
 
 .company-profile p {
   line-height: 1.6;
+  font-size: 1.1rem;
   margin-bottom: 20px;
 }
 
@@ -21,51 +29,51 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 20px 0;
+  margin-top: 20px;
 }
 
 .partner-logos img {
   max-height: 50px;
-  object-fit: contain;
   background: white;
   padding: 5px 10px;
   border-radius: 8px;
-}
-
-.feedback {
-  margin-top: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .feedback-cards {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
   justify-content: center;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.05);
+  background-color: #043a5c;
+  border-radius: 15px;
   padding: 20px;
-  border-radius: 12px;
-  width: 300px;
+  max-width: 300px;
   text-align: center;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .card img {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #fff;
 }
 
 .card p {
   font-style: italic;
-  color: #e0f7ff;
 }
 
 .card span {
+  display: block;
+  margin-top: 10px;
   font-weight: bold;
-  color: #00ffcc;
-} 
+  color: #b2e6ff;
+}
