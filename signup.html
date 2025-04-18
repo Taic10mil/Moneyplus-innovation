@@ -172,3 +172,60 @@
   </script>
 </body>
   </html> 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithPopup,
+    GoogleAuthProvider
+  } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyBG5Of7xoPXX0zg2NWLER0eDL_NxZu39yc",
+    authDomain: "moneyplus-innovation-4567c.firebaseapp.com",
+    projectId: "moneyplus-innovation-4567c",
+    storageBucket: "moneyplus-innovation-4567c.appspot.com",
+    messagingSenderId: "436726330737",
+    appId: "1:436726330737:web:233d49ac11d1f625a3f2d0"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  // Google sign-up
+  document.getElementById("googleSignup").addEventListener("click", () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        alert("Signed up successfully with Google!");
+        window.location.href = "login.html";
+      })
+      .catch((error) => {
+        alert("Google signup error: " + error.message);
+      });
+  });
+
+  // Email/Password sign-up
+  document.getElementById("signupForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const agree = document.getElementById("terms").checked;
+
+    if (!agree) {
+      alert("Please agree to the terms and conditions.");
+      return;
+    }
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert("Account created successfully!");
+        window.location.href = "login.html";
+      })
+      .catch((error) => {
+        alert("Signup error: " + error.message);
+      });
+  });
+</script> 
