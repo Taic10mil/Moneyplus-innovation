@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up - MoneyPlus Innovation</title>
+  <title>Login - MoneyPlus Innovation</title>
   <style>
     body {
-      background: linear-gradient(to right, #003366, #006699);
+      background: linear-gradient(to right, #002233, #004466);
       color: white;
       font-family: 'Segoe UI', sans-serif;
       display: flex;
@@ -15,7 +15,7 @@
       height: 100vh;
       margin: 0;
     }
-    .signup-container {
+    .login-container {
       background: rgba(255, 255, 255, 0.1);
       padding: 30px;
       border-radius: 12px;
@@ -50,23 +50,21 @@
 </head>
 <body>
 
-  <div class="signup-container">
-    <h2>Create Account</h2>
-    <form id="signup-form">
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
       <input type="email" id="email" placeholder="Email" required />
       <input type="password" id="password" placeholder="Password" required />
-      <button type="submit">Sign Up</button>
+      <button type="submit">Login</button>
     </form>
     <p id="message" style="text-align:center;"></p>
   </div>
 
   <!-- Firebase SDK -->
   <script type="module">
-    // Import Firebase
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
-    // Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyBG5Of7xoPXX0zg2NWLER0eDL_NxZu39yc",
       authDomain: "moneyplus-innovation-4567c.firebaseapp.com",
@@ -76,12 +74,10 @@
       appId: "1:436726330737:web:233d49ac11d1f625a3f2d0"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    // Sign up form
-    const form = document.getElementById("signup-form");
+    const form = document.getElementById("login-form");
     const message = document.getElementById("message");
 
     form.addEventListener("submit", (e) => {
@@ -89,14 +85,16 @@
       const email = form.email.value;
       const password = form.password.value;
 
-      createUserWithEmailAndPassword(auth, email, password)
+      signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          message.innerText = "Account created successfully!";
+          message.innerText = "Login successful!";
           message.style.color = "lightgreen";
           form.reset();
+          // Redirect to dashboard or homepage
+          window.location.href = "dashboard.html";
         })
         .catch((error) => {
-          message.innerText = error.message;
+          message.innerText = "Error: " + error.message;
           message.style.color = "salmon";
         });
     });
