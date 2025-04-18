@@ -1,238 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MoneyPlus Innovation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* GLOBAL */
-    * { box-sizing: border-box; margin:0; padding:0; }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #012841, #014263);
-      color: #fff;
-      line-height: 1.5;
+      background-color: #34495e;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    nav {
-      background: #001f3f;
-      padding: 1rem;
+
+    .company-profile {
       text-align: center;
+      padding: 50px 20px;
     }
-    nav a {
-      color: #00ffe5;
-      margin: 0 1rem;
+
+    .company-profile h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #f39c12;
+    }
+
+    .company-profile p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .cta {
+      margin-bottom: 40px;
+    }
+
+    .cta a {
+      color: #fff;
+      font-size: 18px;
+      margin: 0 15px;
       text-decoration: none;
-      font-weight: 600;
-    }
-    nav a:hover { text-decoration: underline; }
-
-    section {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
+      padding: 10px 20px;
+      background-color: #f39c12;
+      border-radius: 5px;
+      transition: background-color 0.3s;
     }
 
-    h1, h2, h3 {
-      color: #00ffe5;
+    .cta a:hover {
+      background-color: #e67e22;
+    }
+
+    .partners img {
+      width: 120px;
+      margin: 0 15px;
+      max-height: 80px; /* Set maximum height for logos */
+      object-fit: contain;
+    }
+
+    .feedback {
+      background-color: #2c3e50;
+      padding: 50px 20px;
+    }
+
+    .feedback h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .feedback p {
+      font-size: 1.1rem;
       margin-bottom: 10px;
     }
-    p { color: #e0f7ff; margin-bottom: 20px; }
 
-    /* COMPANY PROFILE */
-    #profile .intro { font-size: 1.1rem; }
-    #profile .why-trust-us ul {
-      list-style: none;
-      margin: 20px 0;
-      padding-left: 1rem;
+    .feedback-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
     }
-    #profile .why-trust-us li {
-      margin-bottom: 10px;
-    }
-    #profile .why-trust-us strong { color: #fff; }
 
-    #profile .logos {
-      display: flex; flex-wrap: wrap; gap: 20px;
-      justify-content: center; margin: 20px 0 40px;
-    }
-    #profile .logos img {
-      height: 50px;
-      background: #fff;
-      padding: 8px;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    #profile .logos img:hover { transform: scale(1.1); }
-
-    #profile .testimonials .user {
-      background: rgba(255,255,255,0.05);
+    .card {
+      background-color: #1abc9c;
       padding: 20px;
       border-radius: 8px;
-      margin-bottom: 20px;
-      text-align: left;
+      width: 250px;
+      text-align: center;
     }
-    #profile .testimonials .user p { font-style: italic; }
-    #profile .testimonials .user span { font-weight: bold; color: #b2e6ff; }
 
-    #profile .cta a {
-      color: #00ffe5;
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .card span {
+      display: block;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .contact-us {
+      margin-top: 50px;
+      font-size: 1.2rem;
+      color: #ecf0f1;
+    }
+
+    .get-started-btn {
+      margin-top: 40px;
+      padding: 15px 25px;
+      background-color: #2980b9;
+      color: white;
+      font-size: 20px;
+      border-radius: 5px;
       text-decoration: none;
-      font-weight: 600;
-    }
-    #profile .cta a:hover { text-decoration: underline; }
-
-    /* FORMS */
-    .form-box {
-      background: rgba(255,255,255,0.05);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,255,217,0.1);
-      max-width: 400px;
-      margin: 20px auto;
-    }
-    .form-box h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .form-box input, .form-box select {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 6px;
-      background: #002d5c;
-      color: #e0f7ff;
-    }
-    .form-box label {
-      display: flex;
-      align-items: center;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-    .form-box label input { margin-right: 8px; }
-
-    .form-box .btn {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      background: #00ffe5;
-      color: #000;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .form-box .btn:hover { background: #00cbbb; }
-    .form-box .divider {
-      text-align: center;
-      margin: 15px 0;
-      color: #e0f7ff;
+      display: inline-block;
+      transition: background-color 0.3s;
     }
 
-    @media (max-width: 600px) {
-      nav a { display: block; margin: 5px 0; }
-      section { padding: 10px; }
+    .get-started-btn:hover {
+      background-color: #3498db;
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#profile">Profile</a>
-    <a href="#signup">Sign Up</a>
-    <a href="#login">Log In</a>
-  </nav>
+  <!-- Company Profile -->
+  <div class="company-profile">
+    <h1>Welcome to MoneyPlus Innovation</h1>
+    <p>We are a forward-thinking tech company based in Nairobi CBD, Kenya, helping users earn through simple online tasks. Earn with trivia, surveys, spins, and more!</p>
 
-  <!-- COMPANY PROFILE -->
-  <section id="profile">
-    <h1>MoneyPlus‑Innovation</h1>
-    <h2>Turning Time into Earnings</h2>
-    <p class="intro">
-      At MoneyPlus‑Innovation, we are redefining how Kenyans earn online. Our goal is to help you turn your free time into real income with fun and easy tasks — from trivia to surveys, video watching, and more.
-    </p>
-
-    <div class="why-trust-us">
-      <h3>Why You Can Trust Us</h3>
-      <ul>
-        <li><strong>100% Kenyan‑Owned &amp; Operated</strong> – Built for Kenyans by Kenyans.</li>
-        <li><strong>Secure &amp; Fast Payouts</strong> – Via M‑PESA, Airtel Money, and PayPal.</li>
-        <li><strong>Transparent Subscription Plans</strong> – No hidden fees.</li>
-        <li><strong>Active Customer Support</strong> – We’re always here to help!</li>
-        <li><strong>Real Earning Opportunities</strong> – Surveys, trivia, and more.</li>
-      </ul>
+    <div class="cta">
+      <a href="signup.html">Sign Up</a> | <a href="login.html">Login</a>
     </div>
 
     <div class="partners">
-      <h3>Trusted Partners</h3>
-      <div class="logos">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Safaricom_logo.svg" alt="Safaricom">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Airtel_logo.svg" alt="Airtel Money">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/M-PESA_LOGO-01.svg" alt="M‑Pesa">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/SurveyMonkey_Logo.svg/2560px-SurveyMonkey_Logo.svg.png" alt="SurveyMonkey">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Google_2015_logo.svg" alt="Google">
-      </div>
+      <h2>Trusted By:</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/M-Pesa_Logo.png" alt="M-Pesa">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Airtel_logo.svg" alt="Airtel">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Safaricom_logo.svg" alt="Safaricom">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
     </div>
 
-    <div class="testimonials">
-      <h3>What Our Users Say</h3>
-      <div class="user">
-        <p>"I made my first withdrawal within 3 days. It actually works!"</p>
-        <span>– James K., Nairobi</span>
-      </div>
-      <div class="user">
-        <p>"The surveys are fun, and the wheel spin bonus keeps me coming back!"</p>
-        <span>– Winnie M., Kisumu</span>
-      </div>
-      <div class="user">
-        <p>"Fast support, fast payments. MoneyPlus‑Innovation is the real deal."</p>
-        <span>– Brian T., Mombasa</span>
-      </div>
-      <div class="user">
-        <p>"I love that they use M‑PESA and Airtel — very convenient for me."</p>
-        <span>– Mercy N., Eldoret</span>
-      </div>
-    </div>
+    <!-- Get Started Button -->
+    <a href="signup.html" class="get-started-btn">Get Started</a>
+  </div>
 
-    <div class="cta">
-      <h3>Join Thousands of Kenyans Already Earning</h3>
-      <p>With MoneyPlus‑Innovation, your hustle just got digital. Get started today and turn your time into real value.</p>
-      <p>For more info, contact us on <a href="mailto:moneyplusinnovation@gmail.com">moneyplusinnovation@gmail.com</a></p>
+  <!-- User Feedback -->
+  <div class="feedback">
+    <h2>What Our Kenyan Users Say</h2>
+    <div class="feedback-cards">
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2020/08/23/12/44/black-woman-5505581_960_720.jpg" alt="Mary">
+        <p>"This app helped me earn extra cash during my free time. M-Pesa withdrawals are fast!"</p>
+        <span>– Mary N., Nairobi</span>
+      </div>
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2020/08/23/12/44/black-woman-5505581_960_720.jpg" alt="Brian">
+        <p>"Super simple to use. The surveys and trivia are fun and rewarding."</p>
+        <span>– Brian K., Kisumu</span>
+      </div>
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2020/08/23/12/44/black-woman-5505581_960_720.jpg" alt="Janet">
+        <p>"Best platform for part-time earnings in Kenya!"</p>
+        <span>– Janet M., Mombasa</span>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- SIGNUP FORM -->
-  <section id="signup">
-    <div class="form-box">
-      <h2>Create Account</h2>
-      <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="password" placeholder="Password" required>
-        <label><input type="checkbox"> Remember me</label>
-        <label><input type="checkbox" required> I agree to <a href="#" style="color:#00ffe5;">Terms & Conditions</a></label>
-        <button class="btn" type="submit">Sign Up</button>
-        <div class="divider">or</div>
-        <button class="btn" type="button">Continue with Google</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- LOGIN FORM -->
-  <section id="login">
-    <div class="form-box">
-      <h2>Log In</h2>
-      <form>
-        <input type="email" placeholder="Email Address" required>
-        <input type="password" placeholder="Password" required>
-        <label><input type="checkbox"> Remember me</label>
-        <button class="btn" type="submit">Log In</button>
-        <div class="divider">or</div>
-        <button class="btn" type="button">Continue with Google</button>
-      </form>
-    </div>
-  </section>
+  <!-- Contact Us -->
+  <div class="contact-us">
+    <p>For more information, feel free to <a href="mailto:moneyplusinnovation@gmail.com" style="color: #f39c12;">contact us</a> at <strong>moneyplusinnovation@gmail.com</strong></p>
+  </div>
 
 </body>
-      </html>
+</html>
