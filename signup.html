@@ -1,153 +1,68 @@
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBG5Of7xoPXX0zg2NWLER0eDL_NxZu39yc",
-    authDomain: "moneyplus-innovation-4567c.firebaseapp.com",
-    projectId: "moneyplus-innovation-4567c",
-    storageBucket: "moneyplus-innovation-4567c.firebasestorage.app",
-    messagingSenderId: "436726330737",
-    appId: "1:436726330737:web:233d49ac11d1f625a3f2d0"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up - MoneyPlus</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Signup - MoneyPlus Innovation</title>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: #0f0f0f;
+      background: linear-gradient(to right, #01263a, #014262);
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      animation: fadeIn 1.2s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .form-container {
-      background: #1c1c1c;
-      padding: 30px;
-      border-radius: 16px;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-    }
-    .form-container h2 {
-      margin-bottom: 20px;
       text-align: center;
+      padding: 50px;
     }
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
+
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
       border: none;
-      border-radius: 8px;
-      background: #2b2b2b;
+      border-radius: 6px;
+    }
+
+    button {
+      background: #00b894;
       color: white;
-    }
-    .checkbox-group {
-      display: flex;
-      align-items: center;
-      margin: 10px 0;
-      font-size: 14px;
-    }
-    .checkbox-group input {
-      margin-right: 10px;
-    }
-    .google-btn {
-      background: #fff;
-      color: #000;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      width: 100%;
-      font-weight: 600;
-      margin-top: 10px;
       cursor: pointer;
-    }
-    .submit-btn {
-      background: #007bff;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      width: 100%;
-      font-weight: bold;
-      margin-top: 15px;
-      cursor: pointer;
-    }
-    .form-footer {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 14px;
-    }
-    .form-footer a {
-      color: #00bfff;
-      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="form-container">
-    <h2>Create Your Account</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="password" placeholder="Password" required>
+  <h1>Create Your Account</h1>
+  <input type="email" id="email" placeholder="Email" required><br>
+  <input type="password" id="password" placeholder="Password" required><br>
+  <button onclick="signUp()">Sign Up</button>
 
-      <div class="checkbox-group">
-        <input type="checkbox" id="remember">
-        <label for="remember">Remember me</label>
-      </div>
+  <p>Already have an account? <a href="login.html" style="color: #00b894;">Log in</a></p>
 
-      <div class="checkbox-group">
-        <input type="checkbox" id="terms" required>
-        <label for="terms">I agree to the Terms and Conditions</label>
-      </div>
+  <script>
+    // Your Firebase config (paste your config here)
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      appId: "YOUR_APP_ID"
+    };
 
-      <button type="submit" class="submit-btn">Sign Up</button>
-      <button type="button" class="google-btn">Continue with Google</button>
-    </form>
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-    <div class="form-footer">
-      Already have an account? <a href="login.html">Login here</a>
-    </div>
-  </div>
+    function signUp() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(user => {
+          alert("Signup successful!");
+          window.location.href = "login.html";
+        })
+        .catch(error => {
+          alert(error.message);
+        });
+    }
+  </script>
 </body>
 </html>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBG5Of7xoPXX0zg2NWLER0eDL_NxZu39yc",
-    authDomain: "moneyplus-innovation-4567c.firebaseapp.com",
-    projectId: "moneyplus-innovation-4567c",
-    storageBucket: "moneyplus-innovation-4567c.firebasestorage.app",
-    messagingSenderId: "436726330737",
-    appId: "1:436726330737:web:233d49ac11d1f625a3f2d0"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
