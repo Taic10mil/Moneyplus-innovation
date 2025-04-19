@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | MoneyPlus-Innovation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Urbanist', sans-serif;
+      background: linear-gradient(to right, #1c1c1c, #2d2d2d);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: #1a1a1a;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00c896;
+      font-weight: 800;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: #2e2e2e;
+      color: #fff;
+    }
+
+    .checkbox-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #ccc;
+      margin: 10px 0;
+    }
+
+    .checkbox-group input {
+      margin-right: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00c896;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00a87f;
+    }
+
+    .google-btn {
+      margin-top: 15px;
+      background-color: #fff;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .google-btn img {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    .redirect {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .redirect a {
+      color: #00c896;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .terms {
+      font-size: 0.75rem;
+      color: #aaa;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Create Your Account</h2>
+
+    <input type="email" id="email" placeholder="Email address" required>
+    <input type="password" id="password" placeholder="Password" required>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="rememberMe"> Remember me</label>
+      <label><input type="checkbox" id="agreeTerms"> I agree to Terms</label>
+    </div>
+
+    <button onclick="signUp()">Sign Up</button>
+
+    <button class="google-btn" onclick="signUpWithGoogle()">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" alt="Google Logo">
+      Continue with Google
+    </button>
+
+    <div class="redirect">
+      Already have an account? <a href="login.html">Login</a>
+    </div>
+
+    <div class="terms">
+      By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBG5Of7xoPXX0zg2NWLER0eDL_NxZu39yc",
+      authDomain: "moneyplus-innovation-4567c.firebaseapp.com",
+      projectId: "moneyplus-innovation-4567c",
+      storageBucket: "moneyplus-innovation-4567c.appspot.com",
+      messagingSenderId: "436726330737",
+      appId: "1:436726330737:web:233d49ac11d1f625a3f2d0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    window.signUp = () => {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const remember = document.getElementById('rememberMe').checked;
+      const agree = document.getElementById('agreeTerms').checked;
+
+      if (!agree) {
+        alert("Please agree to the terms to continue.");
+        return;
+      }
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    }
+
+    window.signUpWithGoogle = () => {
+      signInWithPopup(auth, provider)
+        .then(() => {
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    }
+  </script>
+</body>
+</html>
