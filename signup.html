@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join MoneyPlus</title>
+  <style>
+    body {
+      background-color: #001f3f;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+    }
+    .container h2 {
+      margin-bottom: 20px;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #0074D9;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .github-button {
+      background-color: #24292e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Join MoneyPlus</h2>
+    <input type="email" id="email" placeholder="Email" required /><br />
+    <input type="password" id="password" placeholder="Password" required /><br />
+    <button id="signup-btn">Sign Up</button>
+
+    <hr style="margin: 20px 0; opacity: 0.2;" />
+
+    <button id="github-login" class="github-button">Continue with GitHub</button>
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- GitHub + Email Signup -->
+  <script>
+    const auth = firebase.auth();
+
+    document.getElementById("signup-btn").addEventListener("click", () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          alert("Signup successful!");
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert("Error: " + error.message);
+        });
+    });
+
+    const githubProvider = new firebase.auth.GithubAuthProvider();
+    document.getElementById("github-login").addEventListener("click", () => {
+      auth.signInWithPopup(githubProvider)
+        .then((result) => {
+          alert("Signed in with GitHub");
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert("GitHub Sign-in Error: " + error.message);
+        });
+    });
+  </script>
+</body>
+</html>
