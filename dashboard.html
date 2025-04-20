@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoneyPlus Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Welcome, <span id="userEmail">Loading...</span></h2>
+
+    <p id="activationNotice" class="notice">
+      To access tasks, activate your account by sending KES 200 to 
+      <strong>Pochi la Biashara: 0701288367</strong>.
+    </p>
+
+    <button id="notifyBtn">I have paid, notify admin</button>
+
+    <div id="tasksSection" style="display: none;">
+      <h3>Your Tasks</h3>
+      <ul>
+        <li>Trivia</li>
+        <li>Spin Wheel</li>
+        <li>Watch Videos</li>
+        <li>Complete Surveys</li>
+      </ul>
+    </div>
+
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <!-- Firebase & JS -->
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
