@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoneyPlus Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #011f3f; /* Ocean dark blue */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    header {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .activation-box {
+      background-color: #022f5c;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    .activation-box h2 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    .activation-box p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #008fcc;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Welcome to MoneyPlus Dashboard</header>
+
+  <div class="activation-box">
+    <h2>Activate Your Account</h2>
+    <p>To access earning features, please pay a one-time activation fee of <strong>KES 200</strong>.</p>
+    <button onclick="requestActivation()">Activate Now</button>
+  </div>
+
+  <footer>
+    MoneyPlus © 2025 | <a href="#" style="color:#aaa;">Terms</a> & <a href="#" style="color:#aaa;">Privacy</a>
+  </footer>
+
+  <!-- Firebase Core SDK -->
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js"></script>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBG5Of7xoPXX0zg2NWLER0eDL_NxZu39yc",
+      authDomain: "moneyplus-innovation-4567c.firebaseapp.com",
+      projectId: "moneyplus-innovation-4567c",
+      storageBucket: "moneyplus-innovation-4567c.appspot.com",
+      messagingSenderId: "436726330737",
+      appId: "1:436726330737:web:233d49ac11d1f625a3f2d0"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Activation fee logic placeholder
+    function requestActivation() {
+      alert("To activate, send KES 200 to Paybill 123456, Account: your phone number. Then email proof to itsmexxtaic@gmail.com");
+    }
+
+    // Optional: Check auth status
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        window.location.href = "login.html"; // Redirect if not logged in
+      }
+    });
+  </script>
+</body>
+</html>
