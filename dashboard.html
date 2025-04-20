@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoneyPlus Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script type="module" src="dashboard.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to MoneyPlus, <span id="user-name">User</span></h1>
+    <button id="logout">Logout</button>
+  </header>  <section class="subscription">
+    <h2>Account Activation</h2>
+    <p>Your account is not active yet. To access tasks, activate with KES 200.</p>
+    <button id="activate-btn">Activate Now</button>
+  </section>  <section class="tasks disabled">
+    <h2>Available Tasks</h2>
+    <div class="task-grid">
+      <button disabled>Trivia</button>
+      <button disabled>Spin Wheel</button>
+      <button disabled>Watch Videos</button>
+      <button disabled>Complete Surveys</button>
+    </div>
+  </section>  <footer>
+    <p><a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
