@@ -1,0 +1,121 @@
+/* login.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(rgba(6, 40, 61, 0.85), rgba(6, 40, 61, 0.85)),
+              url('https://images.unsplash.com/photo-1556745753-b2904692b3cd?fit=crop&w=1350&q=80') no-repeat center center/cover;
+  color: #ffffff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: rgba(11, 61, 145, 0.9);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+h2 {
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #1B4965;
+  color: white;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #21B6A8;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #17a697;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.checkbox-container label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.checkbox-container a {
+  color: #8ED6FF;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.checkbox-container a:hover {
+  text-decoration: underline;
+}
+
+.signup-link {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.signup-link a {
+  color: #8ED6FF;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 20px;
+  }
+}
