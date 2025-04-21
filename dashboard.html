@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoneyPlus Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #0f1c2e, #18314f);
+  color: white;
+}
+
+header {
+  background-color: #122841;
+  padding: 1.2em;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #142e4c;
+  padding: 1em;
+  gap: 1em;
+}
+
+nav button {
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 20px;
+  background: #00b3ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #0095d9;
+  transform: scale(1.05);
+}
+
+.section {
+  padding: 2em;
+  text-align: center;
+}
+
+.card {
+  background-color: #1c2e4a;
+  padding: 1.5em;
+  border-radius: 15px;
+  margin: 1em auto;
+  max-width: 500px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+}
+
+.card button {
+  margin-top: 1em;
+}
+
+.package-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+.package {
+  background: #264a73;
+  border-radius: 16px;
+  padding: 1.5em;
+  width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.package h3 {
+  color: #00b3ff;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to MoneyPlus Dashboard</h1>
+  </header>
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('tasks')">Tasks</button>
+    <button onclick="showSection('subscription')">Subscription</button>
+    <button onclick="showSection('profile')">Profile</button>
+  </nav>  <main>
+    <div id="home" class="section">
+      <div class="card">
+        <h2>Your Earnings</h2>
+        <p id="earnings">KES 0.00</p>
+        <button onclick="alert('Withdrawal will be processed via M-Pesa automatically.')">Withdraw</button>
+      </div>
+    </div><div id="tasks" class="section" style="display:none">
+  <div class="card">
+    <h2>Available Tasks</h2>
+    <p>Choose a task below to start earning:</p>
+    <button onclick="alert('Launching Trivia Quiz...')">Trivia Quiz</button>
+    <button onclick="alert('Daily login bonus claimed!')">Daily Login Bonus</button>
+    <button onclick="alert('Submit your product review!')">Product Reviews</button>
+    <button onclick="alert('Start caption challenge')">Caption Challenges</button>
+    <button onclick="alert('Post a comment and earn')">Comment & Earn</button>
+    <button onclick="alert('Joining quiz battle...')">Quiz Battles</button>
+    <button onclick="alert('View leaderboard rankings')">Leaderboard Rewards</button>
+  </div>
+</div>
+
+<div id="subscription" class="section" style="display:none">
+  <h2>Select a Subscription Package</h2>
+  <div class="package-grid">
+    <div class="package">
+      <h3>Starter</h3>
+      <p>KES 200 / 7 Days</p>
+      <button onclick="payPackage(200)">Subscribe</button>
+    </div>
+    <div class="package">
+      <h3>Basic</h3>
+      <p>KES 500 / 14 Days</p>
+      <button onclick="payPackage(500)">Subscribe</button>
+    </div>
+    <div class="package">
+      <h3>Pro</h3>
+      <p>KES 1000 / 30 Days</p>
+      <button onclick="payPackage(1000)">Subscribe</button>
+    </div>
+    <div class="package">
+      <h3>Elite</h3>
+      <p>KES 2000 / 60 Days</p>
+      <button onclick="payPackage(2000)">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<div id="profile" class="section" style="display:none">
+  <div class="card">
+    <h2>Your Profile</h2>
+    <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+    <p><strong>Phone:</strong> <span id="userPhone">Loading...</span></p>
+  </div>
+</div>
+
+  </main>  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBG5Of7xoPXX0zg2NWLER0eDL_NxZu39yc",
+      authDomain: "moneyplus-innovation-4567c.firebaseapp.com",
+      projectId: "moneyplus-innovation-4567c",
+      storageBucket: "moneyplus-innovation-4567c.appspot.com",
+      messagingSenderId: "436726330737",
+      appId: "1:436726330737:web:233d49ac11d1f625a3f2d0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    onAuthStateChanged(auth, async user => {
+      if (!user) return window.location.href = "login.html";
+      document.getElementById("userEmail").textContent = user.email;
+
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      if (userDoc.exists()) {
+        const data = userDoc.data();
+        document.getElementById("userPhone").textContent = data.phone || "Not set";
+        document.getElementById("earnings").textContent = `KES ${data.earnings || 0}`;
+      }
+    });
+
+    window.showSection = id => {
+      document.querySelectorAll(".section").forEach(div => div.style.display = "none");
+      document.getElementById(id).style.display = "block";
+    };
+
+    window.payPackage = amount => {
+      alert(`Please send KES ${amount} to 0701288367 (Pochi la Biashara) and wait for confirmation.`);
+      // Here you'd add Firestore logic or call a Cloud Function to verify payment.
+    }
+  </script></body>
+                                                                </html>
