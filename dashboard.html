@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MoneyPlus Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to MoneyPlus Dashboard</h1>
+    <nav>
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('tasks')">Tasks</button>
+      <button onclick="showSection('subscription')">Subscription</button>
+      <button onclick="showSection('profile')">Profile</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page-section">
+      <h2>Welcome to MoneyPlus</h2>
+      <p>Earn by completing exciting tasks!</p>
+    </section>
+
+    <section id="tasks" class="page-section hidden">
+      <h2>Available Tasks</h2>
+      <div class="card"><h3>Trivia Quizzes</h3><button>Start</button></div>
+      <div class="card"><h3>Daily Login Bonus</h3><button>Claim</button></div>
+      <div class="card"><h3>Product Reviews</h3><button>Review</button></div>
+      <div class="card"><h3>Caption Challenges</h3><button>Write</button></div>
+      <div class="card"><h3>Comment & Earn</h3><button>Comment</button></div>
+      <div class="card"><h3>Quiz Battles</h3><button>Compete</button></div>
+    </section>
+
+    <section id="subscription" class="page-section hidden">
+      <h2>Activate Your Earnings</h2>
+      <div class="card">
+        <p>Choose your subscription:</p>
+        <ul>
+          <li>KES 200 – 1 Week Access</li>
+          <li>KES 500 – 1 Month Access</li>
+          <li>KES 1000 – 3 Months Access</li>
+          <li>KES 2000 – Lifetime Access</li>
+        </ul>
+        <p>Pay via M-Pesa (Pochi la Biashara): <strong>0701288367</strong></p>
+        <button onclick="prompt('Enter M-Pesa code to verify payment:')">I Have Paid</button>
+      </div>
+    </section>
+
+    <section id="profile" class="page-section hidden">
+      <h2>Your Profile</h2>
+      <p>Email: <span id="email">Loading...</span></p>
+      <p>Phone: <span id="phone">Loading...</span></p>
+      <p><strong>Your Earnings:</strong> <span id="earnings">KES 0.00</span></p>
+      <button onclick="withdraw()">Withdraw</button>
+    </section>
+  </main>
+
+  <!-- Firebase Configuration -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBG5Of7xoPXX0zg2NWLER0eDL_NxZu39yc",
+      authDomain: "moneyplus-innovation-4567c.firebaseapp.com",
+      projectId: "moneyplus-innovation-4567c",
+      storageBucket: "moneyplus-innovation-4567c.appspot.com",
+      messagingSenderId: "436726330737",
+      appId: "1:436726330737:web:233d49ac11d1f625a3f2d0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        alert("Redirecting to login...");
+        window.location.href = "login.html";
+      } else {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          document.getElementById("email").textContent = user.email;
+          document.getElementById("phone").textContent = data.phone || "N/A";
+          document.getElementById("earnings").textContent = `KES ${data.earnings?.toFixed(2) || "0.00"}`;
+        }
+      }
+    });
+
+    function withdraw() {
+      alert("Withdrawal request sent! Processing...");
+      // Add logic for auto-withdraw here
+    }
+
+    function showSection(id) {
+      document.querySelectorAll('.page-section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
