@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoneyPlus Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="profile">
+    <img id="profile-pic" src="default-profile.png" alt="Profile Picture">
+    <h3 id="user-name">Name</h3>
+    <p id="user-email">Email</p>
+    <p id="user-phone">Phone</p>
+    <button id="edit-profile">Edit Profile</button>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#" onclick="showSection('home')">Home</a></li>
+      <li><a href="#" onclick="showSection('tasks')">Tasks</a></li>
+      <li><a href="#" onclick="showSection('subscription')">Subscription</a></li>
+      <li><a href="#" onclick="showSection('withdrawal')">Withdraw</a></li>
+      <li><a href="#" onclick="showSection('referral')">Referrals</a></li>
+      <li id="admin-link" style="display:none;"><a href="#" onclick="showSection('admin')">Admin</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div class="main">
+  <section id="home" class="section">
+    <h1>Account Balance: <span id="account-balance">Ksh 0.00</span></h1>
+    <div class="cards">
+      <div class="card" onclick="showSection('tasks')">
+        <h2>Tasks</h2>
+      </div>
+      <div class="card" onclick="showSection('withdrawal')">
+        <h2>Withdraw</h2>
+      </div>
+      <div class="card" onclick="showSection('referral')">
+        <h2>Referrals</h2>
+      </div>
+    </div>
+  </section>
+
+  <section id="tasks" class="section" style="display:none;">
+    <h2>Tasks</h2>
+    <div class="task-list">
+      <div class="task-card">
+        <h3>Trivia Quiz</h3>
+        <button onclick="startTrivia()">Start</button>
+      </div>
+      <div class="task-card">
+        <h3>Daily Login Bonus</h3>
+        <button onclick="claimDailyBonus()">Claim</button>
+      </div>
+      <div class="task-card">
+        <h3>Leaderboard Contest</h3>
+        <button onclick="viewLeaderboard()">View</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscription" class="section" style="display:none;">
+    <h2>Activate Your Subscription</h2>
+    <p>Pay via M-Pesa: <strong>0701288367 (Pochi La Biashara)</strong></p>
+    <button onclick="showPaymentPrompt()">I have Paid</button>
+  </section>
+
+  <section id="withdrawal" class="section" style="display:none;">
+    <h2>Withdraw Earnings</h2>
+    <input type="number" id="withdraw-amount" placeholder="Enter amount (KES)">
+    <button onclick="requestWithdrawal()">Request Withdrawal</button>
+  </section>
+
+  <section id="referral" class="section" style="display:none;">
+    <h2>Refer & Earn</h2>
+    <p>Share your link:</p>
+    <input type="text" id="referral-link" readonly>
+    <button onclick="copyReferralLink()">Copy Link</button>
+  </section>
+
+  <section id="admin" class="section" style="display:none;">
+    <h2>Admin Panel</h2>
+    <p>Withdrawal Requests:</p>
+    <ul id="withdrawal-requests"></ul>
+  </section>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
